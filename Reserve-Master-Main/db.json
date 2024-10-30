@@ -1,0 +1,120 @@
+{
+  "Lectures": [
+    {
+      "id": "2a54",
+      "name": "Sithija Shehara",
+      "email": "ict21842@fot.sjp.ac.lk",
+      "password": "123456789"
+    },
+    {
+      "id": "6f01",
+      "name": "Pawan Vikasitha",
+      "email": "ict21897@fot.sjp.ac.lk",
+      "password": "123456789"
+    },
+    {
+      "id": "bece",
+      "name": "Pasindu Deshanjana",
+      "email": "ict21951@fot.sjp.ac.lk",
+      "password": "123456789"
+    },
+    {
+      "id": "458d",
+      "name": "Kavindu Dhananjaya",
+      "email": "ict21828@fot.sjp.ac.lk",
+      "password": "123456789"
+    },
+    {
+      "id": "faf8",
+      "name": "Chamara :Liyanage",
+      "email": "chamara@fot.sjp.ac.lk",
+      "password": "123456789"
+    },
+    {
+      "id": "c452",
+      "name": "Chamila Karunarathne",
+      "email": "chamila@fot.sjp.ac.lk",
+      "password": "123456789"
+    },
+    {
+      "id": "7dce",
+      "name": "Prabhani Jayasooriya",
+      "email": "prabhani@fot.sjp.ac.lk",
+      "password": "123456789"
+    },
+    {
+      "id": "af5a",
+      "name": "Charana Randeniya",
+      "email": "randeniya@fot.sjp.ac.lk",
+      "password": "123456789"
+    }
+  ],
+  "Students": [
+    {
+      "id": "5d7d",
+      "name": "Nivindu Basilu",
+      "email": "nivindubasilu@gmail.com",
+      "password": "123456789"
+    },
+    {
+      "id": "2f1c",
+      "name": "deshanjana",
+      "email": "dese@gmail.com",
+      "password": "123456789"
+    }
+  ],
+  "Booking": [
+    {
+      "id": "c7bi45hv6",
+      "lectureName": "Chamila Karunarathne",
+      "department": "Department of Information and Communication Technology",
+      "module": "ITC2223 Web Application Development",
+      "year": "2nd year",
+      "date": "2024-10-25",
+      "startTime": "08:00",
+      "endTime": "10:00",
+      "Type of booking": "lecture",
+      "location": "SF - Second Floor   (Hall 02)",
+      "bookedEmail": "chamila@fot.sjp.ac.lk"
+    },
+    {
+      "id": "a8xttrmi2",
+      "lectureName": "Chamara Liyanage",
+      "department": "Department of Information and Communication Technology",
+      "module": "ITC1042 Computer Systems Organization",
+      "year": "1st year",
+      "date": "2024-10-25",
+      "startTime": "10:00",
+      "endTime": "11:00",
+      "Type of booking": "lecture",
+      "location": "SF - Second Floor   (Hall 02)",
+      "bookedEmail": "chamara@fot.sjp.ac.lk"
+    },
+    {
+      "id": "j33goqc8e",
+      "lectureName": "Prabhani Jayasooriya",
+      "department": "Department of Information and Communication Technology",
+      "module": "ITC2342 Fundamentals of Multimedia",
+      "year": "2nd year",
+      "date": "2024-10-25",
+      "startTime": "11:00",
+      "endTime": "12:00",
+      "Type of booking": "lecture",
+      "location": "SF - Second Floor   (Hall 02)",
+      "bookedEmail": "prabhani@fot.sjp.ac.lk"
+    },
+    {
+      "id": "v43zz9g80",
+      "lectureName": "Charana Randeniya",
+      "department": "Department of Information and Communication Technology",
+      "module": "ITC3023 Human Computer Interaction",
+      "year": "3rd year",
+      "date": "2024-10-25",
+      "startTime": "08:00",
+      "endTime": "10:00",
+      "Type of booking": "lab",
+      "location": "Network Lab",
+      "bookedEmail": "randeniya@fot.sjp.ac.lk"
+    }
+  ]
+}

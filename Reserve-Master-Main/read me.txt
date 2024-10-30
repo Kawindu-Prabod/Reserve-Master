@@ -1,0 +1,37 @@
+How to run?
+
+1) Open a CMDs in project directory 
+	- Press shift and cilck right button and choose open CMD window here
+
+2) In a CMD Install JSON Server in the project directory: To do this, type this command
+	- npm install json-server
+
+3) Then, Add this script in project's "package.json" file
+
+"scripts": {
+  "start": "react-scripts start",
+  "server": "json-server --watch db.json --port 5000"
+}
+
+
+4) And then Run the JSON Server:
+
+	npm run server
+
+
+5) After that,  open another CMD from the project directory
+
+
+6)Type this command
+	-npm install @mui/icons-material
+
+
+
+7) After that, run this command
+	- npm start
+
+
+
+
+
+**Do not close Both the CMD files, There are servers. Servers should run ro run the program
