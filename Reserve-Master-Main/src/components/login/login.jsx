@@ -10,43 +10,40 @@ const Login = () => {
 
   const handleSubmit = async (event) => {
     event.preventDefault();
-
+  
     try {
-      // Fetch users from the server
-      const response = await fetch('http://localhost:5000/Lectures');
-      const lectures = await response.json();
-
-      // Fetch students from the server
-      const responseStudents = await fetch('http://localhost:5000/Students');
-      const students = await responseStudents.json();
-
-      // Check for valid user (students and lecturers)
-      const validUser = [...lectures, ...students].find(user => user.email === email && user.password === password);
-
-      if (validUser) {
-        // Navigate to /today on successful login
+      // Send login request to the server
+      const response = await fetch('http://localhost:5000/login', {
+        method: 'POST',
+        headers: {
+          'Content-Type': 'application/json',
+        },
+        body: JSON.stringify({ email, password }),
+      });
+  
+      if (response.ok) {
+        const data = await response.json();
         alert('Login successful!');
-        localStorage.setItem('userEmail', validUser.email);
-        // alert(`Email saved: ${validUser.email}`);
-
-        // Pass user email to /today
+        localStorage.setItem('userEmail', data.email); // Store the user email
+  
+        // Navigate to /today
         history.push({
           pathname: '/today',
-          state: { userEmail: validUser.email }, // Pass the email to the next page
+          state: { userEmail: data.email }, // Pass the email to the next page
         });
       } else {
         // Handle incorrect login
         setError('Invalid email or password');
       }
     } catch (err) {
-      console.error('Error fetching users:', err);
+      console.error('Error logging in:', err);
       setError('Could not connect to the server. Please try again later.');
     }
-
+  
     console.log('Email:', email);
     console.log('Password:', password);
   };
-
+  
   return (
     <Container maxWidth="sm">
       <Box 

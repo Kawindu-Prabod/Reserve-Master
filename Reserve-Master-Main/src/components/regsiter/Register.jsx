@@ -46,8 +46,22 @@ const Register = () => {
     const code = Math.floor(100000 + Math.random() * 900000).toString();
     setGeneratedCode(code);
     
-    alert(`Your confirmation code is: ${code}`);
-    setConfirmationStep(true);
+    try {
+      await fetch('http://localhost:5000/send-confirmation', {
+        method: 'POST',
+        headers: {
+          'Content-Type': 'application/json',
+        },
+        body: JSON.stringify({ email, code }),
+      });
+      setConfirmationStep(true);
+    } catch (error) {
+      console.error('Error sending confirmation code:', error);
+      alert('Failed to send confirmation code. Please try again.');
+    }
+
+    //alert(`Your confirmation code is: ${code}`);
+    //setConfirmationStep(true);
   };
 
   const handleCodeSubmit = async (event) => {
