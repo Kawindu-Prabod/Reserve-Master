@@ -1,20 +1,19 @@
-import React from "react"
-import { featured } from "../../data/Data"
+import React from "react";
+import { featured } from "../../data/Data";
+import './Featured.css'; // Assuming you save your CSS in this file
 
 const FeaturedCard = () => {
   return (
-    <>
-      <div className='content grid5 mtop'>
-        {featured.map((items, index) => (
-          <div className='box' key={index}>
-            <img src={items.cover} alt='' />
-            <h4>{items.name}</h4>
-            <label>{items.total}</label>
-          </div>
-        ))}
-      </div>
-    </>
-  )
-}
+    <div className='content grid5 mtop'>
+      {featured.map((items, index) => (
+        <div className='box' key={index}>
+          <img src={items.cover} alt={items.name} />
+          <h4>{items.name}</h4>
+          <label>{items.total}</label>
+        </div>
+      ))}
+    </div>
+  );
+};
 
-export default FeaturedCard
+export default FeaturedCard;

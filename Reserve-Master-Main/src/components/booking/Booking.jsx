@@ -1,12 +1,27 @@
 import React, { useState, useEffect } from 'react';
-import { TextField, Button, MenuItem, Select, InputLabel, FormControl, Box, Typography, Container, Modal, Autocomplete, Radio, RadioGroup, FormControlLabel } from '@mui/material';
+import {
+  TextField,
+  Button,
+  MenuItem,
+  Select,
+  InputLabel,
+  FormControl,
+  Box,
+  Typography,
+  Container,
+  Modal,
+  Autocomplete,
+  Radio,
+  RadioGroup,
+  FormControlLabel
+} from '@mui/material';
 import CheckCircle from '@mui/icons-material/CheckCircle';
 import Close from '@mui/icons-material/Close';
 import modulesData from './modules.json';
-import { useHistory } from 'react-router-dom'; // Use useHistory
+import { useHistory } from 'react-router-dom';
 
 const Booking = () => {
-  const history = useHistory(); // Initialize useHistory
+  const history = useHistory();
   const [lectureName, setLectureName] = useState('');
   const [department, setDepartment] = useState('');
   const [module, setModule] = useState(null);
@@ -22,14 +37,14 @@ const Booking = () => {
   const [resultMessage, setResultMessage] = useState('');
   const [modules, setModules] = useState([]);
   const [rooms, setRooms] = useState([]);
-  const [roomFacilities, setRoomFacilities] = useState({}); // State for room facilities
+  const [roomFacilities, setRoomFacilities] = useState({});
 
   useEffect(() => {
     const fetchLecturerName = async () => {
       const email = localStorage.getItem('userEmail');
       if (email) {
         try {
-          const response = await fetch('http://localhost:5000/Lectures');
+          const response = await fetch(`http://localhost:5000/Lectures?email=${email}`);
           const lecturers = await response.json();
           const lecturer = lecturers.find(lecturer => lecturer.email === email);
           if (lecturer) {
@@ -75,10 +90,10 @@ const Booking = () => {
     if (newValue) {
       const selectedRoom = modulesData["Lecture Halls"].find(entry => entry.hallNo === newValue);
       if (selectedRoom) {
-        setRoomFacilities(selectedRoom.facilities); // Set facilities based on selected room
+        setRoomFacilities(selectedRoom.facilities);
       }
     } else {
-      setRoomFacilities({}); // Reset if no room is selected
+      setRoomFacilities({});
     }
   };
 
@@ -96,7 +111,7 @@ const Booking = () => {
 
     setTimeout(async () => {
       try {
-        const response = await fetch('http://localhost:5000/Booking');
+        const response = await fetch('http://localhost:5000/bookings');
         const bookings = await response.json();
 
         const conflictingBooking = bookings.find(booking =>
@@ -110,10 +125,9 @@ const Booking = () => {
           setResultMessage(`Sorry! This hall is already booked for this time until ${conflictingBooking.endTime}.`);
         } else {
           const newBooking = {
-            id: Math.random().toString(36).substr(2, 9),
             lectureName,
             department,
-            module: `${module.code} ${module.title}`, // Save full module name
+            module: `${module.code} ${module.title}`,
             year,
             date,
             startTime,
@@ -123,7 +137,7 @@ const Booking = () => {
             bookedEmail
           };
 
-          const saveResponse = await fetch('http://localhost:5000/Booking', {
+          const saveResponse = await fetch('http://localhost:5000/bookings', {
             method: 'POST',
             headers: {
               'Content-Type': 'application/json',
@@ -281,8 +295,8 @@ const Booking = () => {
               value={sessionType} 
               onChange={(e) => {
                 setSessionType(e.target.value);
-                setRoom(''); // Reset room on session type change
-                setRoomFacilities({}); // Reset facilities
+                setRoom('');
+                setRoomFacilities({});
               }}
               sx={{ display: 'flex', justifyContent: 'center' }}
             >
@@ -309,7 +323,6 @@ const Booking = () => {
                   )}
                 />
               </FormControl>
-              {/* Optionally display facilities */}
             </>
           )}
 

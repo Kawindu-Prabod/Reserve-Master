@@ -25,7 +25,7 @@ const AllBookings = () => {
 
   const fetchBookings = async () => {
     try {
-      const response = await fetch('http://localhost:5000/Booking');
+      const response = await fetch('http://localhost:5000/bookings');
       const bookings = await response.json();
       setLecturerBookings(bookings);
     } catch (error) {
@@ -35,7 +35,7 @@ const AllBookings = () => {
 
   const handleDeleteBooking = async (id) => {
     try {
-      await fetch(`http://localhost:5000/Booking/${id}`, {
+      await fetch(`http://localhost:5000/bookings/${id}`, {
         method: 'DELETE',
       });
       setLecturerBookings(prevBookings => prevBookings.filter(booking => booking.id !== id));
